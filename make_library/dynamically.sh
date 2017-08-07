@@ -1,10 +1,9 @@
 #make library
 
-g++ -c -fPIC ./src/test.cxx -o test_shared.o
-g++ -shared -Wl -o libtest_shared.so  test_shared.o
+g++ -c -fPIC ./src/test.cxx -o ./obj/test_shared.o
+g++ -shared  -o ./lib/libtest_shared.so  ./obj/test_shared.o
 
 #link library and make exe
 
-g++ ./src/main.cxx -o dynamically_linked -L. -ltest_shared
-rm *.o
+g++ ./src/main.C -o ./bin/dynamically_linked -L./lib -ltest_shared
 
